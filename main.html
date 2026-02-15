@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safe Haven Adoption - Protecting Every Child's Future</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Safe Adoption</div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#children" class="nav-link">Children</a>
+                <a href="#apply" class="nav-link">Apply to Adopt</a>
+                <a href="#admin" class="nav-link">Admin Panel</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="section active-section hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Every Child Deserves a Safe, Loving Home</h1>
+                <p class="hero-subtitle">Connecting children with verified families through intelligent matching and comprehensive safety verification</p>
+                <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number" id="children-count">0</div>
+                        <div class="stat-label">Children Waiting</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="families-count">0</div>
+                        <div class="stat-label">Verified Families</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="matches-count">0</div>
+                        <div class="stat-label">Successful Matches</div>
+                    </div>
+                </div>
+                <button class="cta-button" onclick="navigateTo('apply')">Start Your Adoption Journey</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="children" class="section">
+        <div class="container">
+            <h2 class="section-title">Children Seeking Families</h2>
+            <p class="section-subtitle">Each child has unique needs and dreams</p>
+
+            <div class="filters">
+                <select id="age-filter" class="filter-select">
+                    <option value="">All Ages</option>
+                    <option value="0-5">0-5 years</option>
+                    <option value="6-12">6-12 years</option>
+                    <option value="13-17">13-17 years</option>
+                </select>
+                <select id="needs-filter" class="filter-select">
+                    <option value="">All Needs</option>
+                    <option value="medical">Medical Attention</option>
+                    <option value="education">Educational Support</option>
+                    <option value="emotional">Emotional Support</option>
+                </select>
+            </div>
+
+            <div id="children-grid" class="children-grid">
+
+            </div>
+        </div>
+    </section>
+
+
+    <section id="apply" class="section">
+        <div class="container">
+            <h2 class="section-title">Apply to Adopt</h2>
+            <p class="section-subtitle">Our automatic verification system ensures child safety through comprehensive background checks</p>
+
+            <form id="adoption-form" class="adoption-form">
+                <div class="form-section">
+                    <h3>Family Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="family-name">Family Name *</label>
+                            <input type="text" id="family-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address *</label>
+                            <input type="text" id="address" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Background Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="income">Annual Income *</label>
+                            <select id="income" required>
+                                <option value="">Select income range</option>
+                                <option value="20000-40000">$20,000 - $40,000</option>
+                                <option value="40000-70000">$40,000 - $70,000</option>
+                                <option value="70000-100000">$70,000 - $100,000</option>
+                                <option value="100000+">$100,000+</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="housing">Housing Type *</label>
+                            <select id="housing" required>
+                                <option value="">Select housing type</option>
+                                <option value="owned">Owned Home</option>
+                                <option value="rented">Rented Home</option>
+                                <option value="apartment">Apartment</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="marital-status">Marital Status *</label>
+                            <select id="marital-status" required>
+                                <option value="">Select status</option>
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="divorced">Divorced</option>
+                                <option value="widowed">Widowed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="children-count">Current Children</label>
+                            <input type="number" id="children-count" min="0" value="0">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Criminal & Safety Background</h3>
+                    <div class="form-group">
+                        <label for="criminal-record">Criminal Record History *</label>
+                        <select id="criminal-record" required>
+                            <option value="">Select option</option>
+                            <option value="none">No Criminal Record</option>
+                            <option value="minor">Minor Offenses (Traffic, etc.)</option>
+                            <option value="major">Major Offenses</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employment">Employment Status *</label>
+                        <select id="employment" required>
+                            <option value="">Select status</option>
+                            <option value="employed">Employed Full-Time</option>
+                            <option value="self-employed">Self-Employed</option>
+                            <option value="part-time">Part-Time</option>
+                            <option value="unemployed">Unemployed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="references">Professional References (comma-separated emails) *</label>
+                        <input type="text" id="references" placeholder="john@example.com, jane@example.com" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Preferences & Capabilities</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferred-age">Preferred Age Range *</label>
+                            <select id="preferred-age" required>
+                                <option value="">Select age range</option>
+                                <option value="0-5">0-5 years</option>
+                                <option value="6-12">6-12 years</option>
+                                <option value="13-17">13-17 years</option>
+                                <option value="any">Any Age</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Can Provide: *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="capabilities" value="medical"> Medical Care
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="capabilities" value="education"> Educational Support
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="capabilities" value="emotional"> Emotional Support
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="capabilities" value="special"> Special Needs Care
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to adopt? *</label>
+                        <textarea id="motivation" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-button">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <section id="admin" class="section">
+        <div class="container">
+            <h2 class="section-title">Admin Panel</h2>
+
+            <div class="admin-tabs">
+                <button class="tab-button active" onclick="showAdminTab('applications')">Applications</button>
+                <button class="tab-button" onclick="showAdminTab('manage-children')">Manage Children</button>
+                <button class="tab-button" onclick="showAdminTab('matches')">Matches</button>
+            </div>
+
+
+            <div id="applications-tab" class="admin-tab active-tab">
+                <h3>Family Applications</h3>
+                <div id="applications-list" class="applications-list">
+                    <!-- Applications will be added here -->
+                </div>
+            </div>
+
+
+            <div id="manage-children-tab" class="admin-tab">
+                <h3>Add New Child Profile</h3>
+                <form id="child-form" class="child-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="child-name">Child's Name *</label>
+                            <input type="text" id="child-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="child-age">Age *</label>
+                            <input type="number" id="child-age" min="0" max="17" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="child-gender">Gender *</label>
+                            <select id="child-gender" required>
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Special Needs:</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="child-needs" value="medical"> Medical
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="child-needs" value="education"> Educational
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="child-needs" value="emotional"> Emotional
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="child-bio">Biography *</label>
+                        <textarea id="child-bio" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Add Child</button>
+                </form>
+
+                <h3 style="margin-top: 2rem;">Existing Children</h3>
+                <div id="admin-children-list" class="applications-list">
+
+                </div>
+            </div>
+
+
+            <div id="matches-tab" class="admin-tab">
+                <h3>Successful Matches</h3>
+                <div id="matches-list" class="matches-list">
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div id="verification-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+
+    <div id="child-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeChildModal()">&times;</span>
+            <div id="child-modal-body"></div>
+        </div>
+    </div>
+
+    <script src="source.js"></script>
+</body>
+</html>
