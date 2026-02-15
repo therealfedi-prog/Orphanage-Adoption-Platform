@@ -1,4 +1,6 @@
-
+// Admin authentication
+const ADMIN_PASSWORD = "admin123"; // Simple password for hackathon
+let isAdminAuthenticated = false;
 let children = [];
 let families = [];
 let matches = [];
@@ -59,7 +61,32 @@ function initializeSampleData() {
 }
 
 
+function showAdminLogin(event) {
+    event.preventDefault();
+
+    if (isAdminAuthenticated) {
+        navigateTo('admin');
+        return;
+    }
+
+    const password = prompt("Admin Access Required\nPlease enter admin password:");
+
+    if (password === ADMIN_PASSWORD) {
+        isAdminAuthenticated = true;
+        alert("✅ Admin access granted!");
+        navigateTo('admin');
+    } else if (password !== null) {
+        alert("❌ Incorrect password. Access denied.");
+    }
+}
 function navigateTo(sectionId) {
+    // Block admin access if not authenticated
+    if (sectionId === 'admin' && !isAdminAuthenticated) {
+        alert("❌ Admin access required. Please login from the Admin Panel link.");
+        return;
+    }
+
+    // Update sections
     document.querySelectorAll('.section').forEach(section => {
         section.classList.remove('active-section');
     });
@@ -79,6 +106,8 @@ function navigateTo(sectionId) {
 
     window.scrollTo(0, 0);
 }
+
+
 
 
 document.querySelectorAll('.nav-link').forEach(link => {
